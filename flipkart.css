@@ -1,0 +1,66 @@
+*{
+    margin:8px;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+.logo,.travel{
+    display: inline-block;
+    font-style: italic;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 10px;
+    border-radius: 10px;
+}
+.location{
+     display: inline-block;
+    font-weight: 500;
+font-size: 16px;
+margin-left: 70%;
+}
+.logo{
+    background-color: yellow;
+
+}
+.travel{
+    background-color: #e2e2e2;
+}
+.middle input{
+    width: 80%;
+    padding: 10px;
+    outline: none;
+    border: 2px solid blue;
+    border-radius: 10px;
+
+}
+.bottom .box{
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+    background-color: slateblue;
+}
+.image img{
+    border-radius: 8px;
+    width: 350px;
+    height:200px;
+    margin-right:50px;
+    
+
+}
+
+.container img{
+    border-radius: 8px;
+    width: 350px;
+    height: 283px;
+    margin-right:50px;
+}
+.footer{
+    background-color: black;
+    color: white;
+}
+
+.discription, .about, .help{
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 15%;
+}
