@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Basic YouTube Clone</title>
+    <style>
+        /* Basic reset to remove default margins */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Header section using borders, padding, and block/inline-block */
+        header {
+            display: block;
+            padding: 15px 20px;
+            border-bottom: 2px solid #ccc;
+            background-color: white;
+        }
+        
+        header h1 {
+            display: inline-block;
+            margin: 0;
+            color: #FF0000;
+        }
+        
+        header input {
+            display: inline-block;
+            margin-left: 100px;
+            padding: 10px;
+            width: 40%;
+            border: 1px solid #ccc;
+        }
+
+        /* Main layout container */
+        .main-container {
+            display: block;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Sidebar layout using aside and nav */
+        aside {
+            display: inline-block;
+            width: 15%;
+            padding: 20px;
+            border-right: 1px solid #ccc;
+            vertical-align: top;
+            height: 100vh; /* Makes the sidebar take up full screen height */
+        }
+        
+        nav h2 {
+            margin: 0 0 20px 0;
+            font-size: 16px;
+            color: #333;
+        }
+
+        /* Content area for videos */
+        .video-section {
+            display: inline-block;
+            width: 80%;
+            padding: 20px;
+            vertical-align: top;
+        }
+
+        /* Individual video cards */
+        .video-card {
+            display: inline-block;
+            width: 30%;
+            margin: 1%;
+            vertical-align: top;
+        }
+        
+        .video-card img {
+            width: 100%;
+            height: 160px;
+            background-color: #ddd;
+            border: 1px solid #ccc;
+        }
+        
+        .video-card h3 {
+            margin: 10px 0 5px 0;
+            font-size: 16px;
+        }
+        
+        .video-card p {
+            margin: 0;
+            font-size: 14px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>YouTube</h1>
+        <input type="text" placeholder="Search...">
+    </header>
+
+    <div class="main-container">
+        <aside>
+            <nav>
+                <h2>Home</h2>
+                <h2>Shorts</h2>
+                <h2>Subscriptions</h2>
+                <br>
+                <h2>Library</h2>
+                <h2>History</h2>
+            </nav>
+        </aside>
+
+        <div class="video-section">
+            
+            <div class="video-card">
+              <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=300" alt="YouTube Logo Test">
+                <h3>Learn HTML in 10 Minutes</h3>
+                <p>Code Channel</p>
+            </div>
+            
+            <div class="video-card">
+                <img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=400&h=225&fit=crop" alt="Thumbnail">
+                <h3>CSS Layouts Explained</h3>
+                <p>Web Dev 101</p>
+            </div>
+
+            <div class="video-card">
+                <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=400&h=225&fit=crop" alt="Thumbnail">
+                <h3>My Daily Vlog</h3>
+                <p>Vlogger Life</p>
+            </div>
+            
+            <div class="video-card">
+                <img src="https://images.unsplash.com/photo-1538481199705-c710c4e965fc?w=400&h=225&fit=crop" alt="Thumbnail">
+                <h3>gaming Setup</h3>
+                <p>Pet Videos</p>
+            </div>
+            
+            <div class="video-card">
+                <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=400&h=225&fit=crop" alt="Thumbnail">
+                <h3>Top 10 Movies of 2023</h3>
+                <p>Movie Critic</p>
+            </div>
+            
+            <div class="video-card">
+                <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400&h=225&fit=crop" alt="Thumbnail">
+                <h3>Easy Cooking Recipes</h3>
+                <p>Chef's Kitchen</p>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
