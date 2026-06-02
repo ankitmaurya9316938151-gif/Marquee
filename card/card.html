@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Furniture Card</title>
+    <style>
+        /* Base card container */
+        .box {
+            position: relative;
+            background-color: #5a5d5e;
+            width: 350px;
+            height: 450px;
+        }
+
+        /* Main Product Image */
+        img {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 310px;
+            height: 220px;
+        }
+
+        /* "Sell" Badge over the image */
+        h2.sell-badge {
+            position: absolute;
+            top: 35px;
+            left: 35px;
+            background-color: gainsboro;
+            margin: 0;
+            padding: 5px 15px;
+            font-family: sans-serif;
+            font-size: 14px;
+            font-weight: normal;
+            color: black;
+        }
+
+        /* Product Title ("Furniture") */
+        h1 {
+            position: absolute;
+            top: 265px;
+            left: 35px;
+            margin: 0;
+            font-family: 'Times New Roman', serif;
+            font-size: 32px;
+            color: black;
+        }
+
+        /* Price ("$500") */
+        h2.price {
+            position: absolute;
+            top: 330px;
+            left: 35px;
+            margin: 0;
+            font-family: sans-serif;
+            font-size: 16px;
+            font-weight: normal;
+            color:black;
+        }
+
+        /* "Add to cart" Button Bar */
+        h2.cart-btn {
+            position: absolute;
+            top: 385px;
+            left: 35px;
+            width: 280px;
+            background-color: gainsboro;
+            margin: 0;
+            padding: 8px 0px;
+            font-family: sans-serif;
+            font-size: 15px;
+            font-weight: normal;
+            color: black;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="box">
+        <img src="https://cdn.sanity.io/images/uqxwe2qj/production/62db3c671745e98cb27690dff96f8033d2bb7f35-2048x1010.jpg" alt="Furniture">
+        
+        <h2 class="sell-badge">Sell</h2>
+        <h1>Furniture</h1>
+        <h2 class="price">$500</h2>
+        <h2 class="cart-btn">Add to cart</h2>
+    </div>
+
+</body>
+</html>
