@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Basic Dashboard Layout</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: gray;
+      color:white;
+      display: grid;
+      grid-template-columns: 250px 1fr;
+      height: 100vh;
+    }
+
+
+    .sidebar {
+      background-color: black;
+      border-right: 1px solid gray;
+      padding: 15px;
+    }
+    .brand {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: white;
+      padding-bottom: 15px;
+      border-bottom: 1px solid gray;
+      margin-bottom: 15px;
+    }
+    .menu-item {
+      padding: 10px;
+      color: lightblue;
+      text-decoration: none;
+      display: block;
+      font-size: 0.95rem;
+    }
+    .menu-item.active {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: white;
+      border-radius: 4px;
+    }
+    .submenu-item {
+      padding: 8px 10px 8px 25px;
+      color: gray;
+      text-decoration: none;
+      display: block;
+      font-size: 0.9rem;
+    }
+    .submenu-item.active {
+      color: white;
+    }
+
+
+    .main-wrapper {
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+    }
+
+
+    .navbar {
+      height: 56px;
+      background-color: black;
+      border-bottom: 1px solid gray;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+    }
+    .nav-links a {
+      color: blue;
+      text-decoration: none;
+      margin-right: 15px;
+      font-size: 0.9rem;
+    }
+    .nav-right {
+      color:lightblue;
+      font-size: 0.9rem;
+    }
+
+
+    .content-header {
+      padding: 20px 25px 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .content-header h1 {
+      font-size: 1.6rem;
+      font-weight: 500;
+      color:white;
+    }
+    .breadcrumb {
+      font-size: 0.9rem;
+      color: gray;
+    }
+    .breadcrumb a {
+      color: blue;
+      text-decoration: none;
+    }
+
+    .content-body {
+      padding: 0 25px 25px;
+    }
+
+
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 20px;
+    }
+
+
+    .stat-card {
+      grid-column: span 3;
+      border-radius: 4px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 130px;
+      position: relative;
+    }
+    .card-content {
+      padding: 15px;
+      color: whitesmoke;
+    }
+    .card-content h2 {
+      font-size: 2.2rem;
+      font-weight: 700;
+    }
+    .card-content p {
+      font-size: 0.95rem;
+      margin-top: 2px;
+    }
+    .card-icon {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      font-size: 3rem;
+      opacity: 0.15;
+    }
+    .more-info {
+      background-color: rgba(0, 0, 0, 0.15);
+      padding: 6px;
+      text-align: center;
+      font-size: 0.85rem;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Colors */
+    .bg-blue   { background-color: blue; }
+    .bg-green  { background-color: green; }
+    .bg-yellow { background-color: yellow; color: black; }
+    .bg-yellow .more-info { color: black; }
+    .bg-red    { background-color: red; }
+
+    /* --- LEFT CHART PANEL --- */
+    .chart-left {
+      grid-column: span 7;
+      background-color: black;
+      border: 1px solid gray;
+      border-radius: 4px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      height: 380px;
+    }
+    .panel-title {
+      color: white;
+      font-size: 1rem;
+      margin-bottom: 15px;
+    }
+    .fake-graph-grid {
+      flex-grow: 1;
+      border-bottom: 1px solid gray;
+      border-left: 1px solid gainsboro;
+      background: repeating-linear-gradient(180deg, transparent, transparent 19.5%, rgba(255,255,255,0.05) 20%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: gray;
+    }
+
+    /* --- RIGHT MAP PANEL --- */
+    .chart-right {
+      grid-column: span 5;
+      background-color: blue;
+      border-radius: 4px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 380px;
+      color: white;
+    }
+    .fake-map-placeholder {
+      flex-grow: 1;
+      border: 1px dashed gray;
+      border-radius: 4px;
+      margin: 15px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: whitesmoke;
+      background-color: black;
+    }
+    .mini-stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+    .mini-box {
+      background-color:black;
+      padding: 10px;
+      text-align: center;
+      border-radius: 4px;
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="sidebar">
+    <div class="brand">📦 AdminLTE 4</div>
+    <a href="#" class="menu-item active">📊 Dashboard</a>
+    <div class="submenu">
+      <a href="#" class="submenu-item active">○ Dashboard v1</a>
+      <a href="#" class="submenu-item">○ Dashboard v2</a>
+      <a href="#" class="submenu-item">○ Dashboard v3</a>
+    </div>
+    <a href="#" class="menu-item">🎨 Theme Generate</a>
+    <a href="#" class="menu-item">🧱 Widgets</a>
+    <a href="#" class="menu-item">📄 Layout Options</a>
+  </div>
+
+  <div class="main-wrapper">
+    
+    <div class="navbar">
+      <div class="nav-links">
+        <a href="#">☰</a>
+        <a href="#">Live preview</a>
+        <a href="#">Documentation</a>
+      </div>
+      <div class="nav-right">
+        👤 Alexander Pierce
+      </div>
+    </div>
+
+    <div class="content-header">
+      <h1>Dashboard</h1>
+      <div class="breadcrumb">
+        <a href="#">Home</a> / <span>Dashboard</span>
+      </div>
+    </div>
+
+    <div class="content-body">
+      <div class="dashboard-grid">
+
+        <div class="stat-card bg-blue">
+          <div class="card-content">
+            <h2>150</h2>
+            <p>New Orders</p>
+          </div>
+          <div class="card-icon">🛒</div>
+          <a href="#" class="more-info">More info ➔</a>
+        </div>
+
+        <div class="stat-card bg-green">
+          <div class="card-content">
+            <h2>53%</h2>
+            <p>Bounce Rate</p>
+          </div>
+          <div class="card-icon">📈</div>
+          <a href="#" class="more-info">More info ➔</a>
+        </div>
+
+        <div class="stat-card bg-yellow">
+          <div class="card-content">
+            <h2>44</h2>
+            <p>User Registrations</p>
+          </div>
+          <div class="card-icon">👤</div>
+          <a href="#" class="more-info">More info ➔</a>
+        </div>
+
+        <div class="stat-card bg-red">
+          <div class="card-content">
+            <h2>65</h2>
+            <p>Unique Visitors</p>
+          </div>
+          <div class="card-icon">📊</div>
+          <a href="#" class="more-info">More info ➔</a>
+        </div>
+
+        <div class="chart-left">
+          <div class="panel-title">Sales Value</div>
+          <div class="fake-graph-grid">
+            [ Sales Graph Area ]
+          </div>
+        </div>
+
+        <div class="chart-right">
+          <div class="panel-title">Sales Value</div>
+          <div class="fake-map-placeholder">
+            [ Vector Map Renders Here ]
+          </div>
+          <div class="mini-stats-row">
+            <div class="mini-box">Visitors</div>
+            <div class="mini-box">Online</div>
+            <div class="mini-box">Sales</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
